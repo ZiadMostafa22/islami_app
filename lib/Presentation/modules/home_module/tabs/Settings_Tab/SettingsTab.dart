@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/Presentation/modules/home_module/tabs/Settings_Tab/Widgets/LanguageBottomSheet.dart';
 import 'package:islami/Presentation/modules/home_module/tabs/Settings_Tab/Widgets/SettingsContainer.dart';
 import 'package:islami/Presentation/modules/home_module/tabs/Settings_Tab/Widgets/SettingsLabels.dart';
@@ -15,7 +16,7 @@ class Settingstab extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Settingslabels(Label: 'Theme'),
+            Settingslabels(Label: AppLocalizations.of(context)!.theme),
             const SizedBox(height: 4),
             InkWell(
                 onTap: () {
@@ -24,9 +25,11 @@ class Settingstab extends StatelessWidget {
                     builder: (context) => Themebotttomsheet(),
                   );
                 },
-                child: Settingscontainer(Label: 'Light')), // Removed 'const'
+                child: Settingscontainer(
+                    Label: AppLocalizations.of(context)!.light)),
             const SizedBox(height: 10),
-            Settingslabels(Label: 'Language'), // Removed 'const'
+            Settingslabels(Label: AppLocalizations.of(context)!.language),
+            // Removed 'const'
             const SizedBox(height: 4),
             InkWell(
                 onTap: () {
@@ -35,7 +38,8 @@ class Settingstab extends StatelessWidget {
                     builder: (context) => Languagebottomsheet(),
                   );
                 },
-                child: Settingscontainer(Label: 'English')), // Removed 'const'
+                child: Settingscontainer(
+                    Label: AppLocalizations.of(context)!.english)),
           ],
         ),
       ),

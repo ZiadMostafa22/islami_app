@@ -5,14 +5,17 @@ class VerseWidget extends StatelessWidget {
   String verse;
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(14.0),
-        child: Text(
-          verse,
-          textDirection: TextDirection.rtl,
-          textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.titleMedium,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Text(
+            verse,
+            textDirection: TextDirection.rtl,
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 25),
+          ),
         ),
       ),
     );

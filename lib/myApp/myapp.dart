@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:islami/Presentation/modules/home_module/screens/HadithScreen/hadith_details-screen.dart';
 import 'package:islami/Presentation/modules/home_module/screens/QuranDetailsScreen/QuraanDetailsScreen.dart';
 import 'package:islami/Presentation/modules/home_module/screens/homescreen.dart';
@@ -25,6 +27,17 @@ class MyApp extends StatelessWidget {
         RoutesManager.SettingsTab: (_) => Settingstab(),
       },
       initialRoute: RoutesManager.splashRoute,
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('en'),
+        Locale('ar'),
+      ],
+      locale: Locale('ar'),
     );
   }
 }

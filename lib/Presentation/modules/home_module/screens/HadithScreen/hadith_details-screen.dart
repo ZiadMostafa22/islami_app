@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/Presentation/modules/home_module/tabs/Hadeeth_Tab/HadeethTab.dart';
 import 'package:islami/core/assets_manager.dart';
 
@@ -15,7 +16,7 @@ class HadithDetailsscreen extends StatelessWidget {
       ),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Islami'),
+          title: Text(AppLocalizations.of(context)!.appTitle),
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 80),
@@ -28,7 +29,7 @@ class HadithDetailsscreen extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       hadithArgs.title,
-                      style: Theme.of(context).textTheme.bodyMedium,
+                      style: TextStyle(fontSize: 25),
                     ),
                   ),
                   SizedBox(
@@ -47,7 +48,7 @@ class HadithDetailsscreen extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       hadithArgs.content,
-                      style: Theme.of(context).textTheme.bodyMedium,
+                      style: TextStyle(fontSize: 23),
                       textAlign: TextAlign.center,
                       textDirection: TextDirection.rtl,
                     ),

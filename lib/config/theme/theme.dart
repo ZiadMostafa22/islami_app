@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:islami/core/colors_manager.dart';
 
 class theme {
   static ThemeData lightTheme = ThemeData(
+      textTheme: GoogleFonts.readexProTextTheme(),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           showUnselectedLabels: true,
           elevation: 20,
@@ -17,23 +19,8 @@ class theme {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
       indicatorColor: Colors.white,
-      textTheme: TextTheme(
-          headlineMedium: TextStyle(
-            fontSize: 21,
-            fontWeight: FontWeight.w500,
-            color: Colors.black,
-          ),
-          titleMedium: TextStyle(
-            fontSize: 19,
-            color: Colors.black,
-            fontWeight: FontWeight.w400,
-          ),
-          bodyMedium: TextStyle(
-            color: Colors.white, fontSize: 25, fontWeight: FontWeight.w500),
-        displayMedium: TextStyle(fontSize: 21, color: ColorManager.goldColor),
-      ),
       scaffoldBackgroundColor: Colors.transparent,
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
           centerTitle: true,
           titleTextStyle: TextStyle(
               color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold),
