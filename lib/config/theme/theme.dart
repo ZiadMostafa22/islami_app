@@ -29,7 +29,9 @@ class theme {
             fontWeight: FontWeight.w400,
           ),
           bodyMedium: TextStyle(
-              color: Colors.white, fontSize: 25, fontWeight: FontWeight.w500)),
+            color: Colors.white, fontSize: 25, fontWeight: FontWeight.w500),
+        displayMedium: TextStyle(fontSize: 21, color: ColorManager.goldColor),
+      ),
       scaffoldBackgroundColor: Colors.transparent,
       appBarTheme: const AppBarTheme(
           centerTitle: true,
@@ -38,5 +40,8 @@ class theme {
           backgroundColor: Colors.transparent,
           iconTheme: IconThemeData(
             color: Colors.red,
-          )));
+          )),
+      bottomSheetTheme: BottomSheetThemeData(
+        elevation: 20,
+      ));
 }

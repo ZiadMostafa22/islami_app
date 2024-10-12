@@ -4,4 +4,5 @@ class RoutesManager {
   static const String quraanDetails = '/quraandetails';
   static const String hadeethTab = '/hadeethTab';
   static const String hadithDetailsScreen = '/hadithdetailsscreen';
+  static const String SettingsTab = '/SettingsTab';
 }

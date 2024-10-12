@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islami/Presentation/modules/home_module/tabs/Hadeeth_Tab/HadeethTab.dart';
 import 'package:islami/Presentation/modules/home_module/tabs/Quraan_Tab/QuraanTab.dart';
 import 'package:islami/Presentation/modules/home_module/tabs/Radio_Tab/RadioTab.dart';
+import 'package:islami/Presentation/modules/home_module/tabs/Settings_Tab/SettingsTab.dart';
 import 'package:islami/Presentation/modules/home_module/tabs/Tasbeeh_Tab/TasbeehTab.dart';
 import 'package:islami/core/assets_manager.dart';
 import 'package:islami/core/colors_manager.dart';
@@ -20,6 +21,7 @@ class _HomescreenState extends State<Homescreen> {
     HadeethTabScreen(),
     const TasbeehTab(),
     const RadioTab(),
+    Settingstab(),
   ];
 
   int selectedindex = 0;
@@ -64,6 +66,10 @@ class _HomescreenState extends State<Homescreen> {
             BottomNavigationBarItem(
               icon: ImageIcon(AssetImage(AssetsManager.radio)),
               label: StringsManager.RadioLabel,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: StringsManager.SettingsLabel,
             ),
           ],
         ),
