@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../../../../core/colors_manager.dart';
-import '../../../../../../core/strings_manager.dart';
 
 class Quraanheaderwidget extends StatelessWidget {
   const Quraanheaderwidget({super.key});
@@ -20,9 +20,9 @@ class Quraanheaderwidget extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                StringsManager.VersesNumber,
+                AppLocalizations.of(context)!.versesNumber,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headlineMedium,
+                style: TextStyle(fontSize: 24),
               ),
             ),
             Container(
@@ -31,9 +31,9 @@ class Quraanheaderwidget extends StatelessWidget {
             ),
             Expanded(
               child: Text(
-                StringsManager.ChapterName,
+                AppLocalizations.of(context)!.chapterName,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headlineMedium,
+                style: TextStyle(fontSize: 24),
               ),
             )
           ],
