@@ -20,11 +20,11 @@ class _LanguagebottomsheetState extends State<Languagebottomsheet> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            buildSelectedLanguage(AppLocalizations.of(context)!.arabic),
+            buildSelectedLanguage(AppLocalizations.of(context)!.english),
             SizedBox(
               height: 15,
             ),
-            buildUnSelectedLanguage(AppLocalizations.of(context)!.english),
+            buildUnSelectedLanguage(AppLocalizations.of(context)!.arabic),
           ],
         ),
       ),
@@ -35,7 +35,7 @@ class _LanguagebottomsheetState extends State<Languagebottomsheet> {
     return Row(
       children: [
         Text(
-          AppLocalizations.of(context)!.arabic,
+          AppLocalizations.of(context)!.english,
           style: TextStyle(fontSize: 20),
         ),
         Spacer(),
@@ -48,7 +48,7 @@ class _LanguagebottomsheetState extends State<Languagebottomsheet> {
   }
 
   Widget buildUnSelectedLanguage(String UnSelectedLanguage) {
-    return Text(AppLocalizations.of(context)!.english,
+    return Text(AppLocalizations.of(context)!.arabic,
         style: TextStyle(fontSize: 20));
   }
 }
