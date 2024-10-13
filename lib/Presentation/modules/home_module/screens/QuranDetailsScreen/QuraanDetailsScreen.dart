@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:islami/Presentation/modules/home_module/screens/QuranDetailsScreen/Widgets/verse_widget.dart';
 import 'package:islami/Presentation/modules/home_module/tabs/Quraan_Tab/QuraanTab.dart';
 import 'package:islami/core/assets_manager.dart';
@@ -35,7 +36,10 @@ class _QuraandetailsscreenState extends State<Quraandetailsscreen> {
                   itemCount: verses.length,
                 ),
           appBar: AppBar(
-            title: Text(suraItem.suraName),
+            title: Text(
+              suraItem.suraName,
+              style: GoogleFonts.readexPro(color: Colors.black, fontSize: 25),
+            ),
           ),
         ),
       ],

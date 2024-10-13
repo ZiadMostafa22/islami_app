@@ -8,4 +8,6 @@ class AssetsManager {
   static const String splash = '${base}splash.png';
   static const String quranLogo = '${base}qur2an_screen_logo.png';
   static const String hadeethLogo = '${base}hadeth_logo.png';
+  static const String Sebhabody = '${base}body_sebha_logo.png';
+  static const String headSebha = '${base}head_sebha_logo.png';
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../../../../core/colors_manager.dart';
 
@@ -19,11 +20,11 @@ class _LanguagebottomsheetState extends State<Languagebottomsheet> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            buildSelectedLanguage('English'),
+            buildSelectedLanguage(AppLocalizations.of(context)!.english),
             SizedBox(
-              height: 8,
+              height: 15,
             ),
-            buildUnSelectedLanguage('العربية'),
+            buildUnSelectedLanguage(AppLocalizations.of(context)!.arabic),
           ],
         ),
       ),
@@ -34,8 +35,8 @@ class _LanguagebottomsheetState extends State<Languagebottomsheet> {
     return Row(
       children: [
         Text(
-          'English',
-          style: Theme.of(context).textTheme.displayMedium,
+          AppLocalizations.of(context)!.english,
+          style: TextStyle(fontSize: 20),
         ),
         Spacer(),
         Icon(
@@ -47,10 +48,7 @@ class _LanguagebottomsheetState extends State<Languagebottomsheet> {
   }
 
   Widget buildUnSelectedLanguage(String UnSelectedLanguage) {
-    return Text('العربية',
-        style: Theme.of(context)
-            .textTheme
-            .displayMedium
-            ?.copyWith(color: Colors.black));
+    return Text(AppLocalizations.of(context)!.arabic,
+        style: TextStyle(fontSize: 20));
   }
 }

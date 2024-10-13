@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/core/colors_manager.dart';
 
 class Themebotttomsheet extends StatefulWidget {
@@ -18,11 +19,11 @@ class _ThemebotttomsheetState extends State<Themebotttomsheet> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            buildSelectedItemThemeWidget('Light'),
-            buildUnselectedItemThemeWidget('Dark'),
+            buildSelectedItemThemeWidget(AppLocalizations.of(context)!.light),
             SizedBox(
-              height: 8,
+              height: 15,
             ),
+            buildUnselectedItemThemeWidget(AppLocalizations.of(context)!.dark),
           ],
         ),
       ),
@@ -34,7 +35,7 @@ class _ThemebotttomsheetState extends State<Themebotttomsheet> {
       children: [
         Text(
           selectedTheme,
-          style: Theme.of(context).textTheme.displayMedium,
+          style: TextStyle(fontSize: 20),
         ),
         Spacer(),
         Icon(
@@ -47,9 +48,7 @@ class _ThemebotttomsheetState extends State<Themebotttomsheet> {
 
   Widget buildUnselectedItemThemeWidget(String unSelectedTheme) {
     return Text(unSelectedTheme,
-        style: Theme.of(context)
-            .textTheme
-            .displayMedium
-            ?.copyWith(color: Colors.black));
+      style: TextStyle(fontSize: 18),
+    );
   }
 }

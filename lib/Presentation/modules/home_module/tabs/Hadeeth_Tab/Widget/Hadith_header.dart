@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HadithHeader extends StatelessWidget {
   const HadithHeader({super.key});
@@ -14,8 +15,8 @@ class HadithHeader extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Text(
-          'El-Hadith',
-          style: Theme.of(context).textTheme.titleMedium,
+          AppLocalizations.of(context)!.hadithHeader,
+          style: TextStyle(fontSize: 25),
           textAlign: TextAlign.center,
         ),
       ),
