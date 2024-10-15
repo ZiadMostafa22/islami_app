@@ -22,10 +22,10 @@ class Suranamewidget extends StatelessWidget {
               child: Text(
                 suraItem.suraName,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 25),
+                style: Theme.of(context).textTheme.titleMedium,
               )),
           Container(
-            color: ColorManager.goldColor,
+            color: ColorManager.lightPrimary,
             width: 3,
           ),
           Expanded(
@@ -33,7 +33,7 @@ class Suranamewidget extends StatelessWidget {
               child: Text(
                 suraItem.versesNumber,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 25),
+                style: Theme.of(context).textTheme.titleMedium,
               )),
         ]),
       ),

@@ -16,7 +16,7 @@ class HadithHeader extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Text(
           AppLocalizations.of(context)!.hadithHeader,
-          style: TextStyle(fontSize: 25),
+          style: Theme.of(context).textTheme.headlineMedium,
           textAlign: TextAlign.center,
         ),
       ),

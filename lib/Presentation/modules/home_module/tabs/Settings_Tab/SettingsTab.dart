@@ -4,12 +4,18 @@ import 'package:islami/Presentation/modules/home_module/tabs/Settings_Tab/Widget
 import 'package:islami/Presentation/modules/home_module/tabs/Settings_Tab/Widgets/SettingsContainer.dart';
 import 'package:islami/Presentation/modules/home_module/tabs/Settings_Tab/Widgets/SettingsLabels.dart';
 import 'package:islami/Presentation/modules/home_module/tabs/Settings_Tab/Widgets/ThemeBotttomSheet.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../../Providers/LanguageProvider.dart';
+import '../../../../../Providers/ThemeProvider.dart';
 
 class Settingstab extends StatelessWidget {
   const Settingstab({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var themeProvider = Provider.of<ThemeProvider>(context);
+    var langProvider = Provider.of<LanguageProvider>(context);
     return Container(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 5),

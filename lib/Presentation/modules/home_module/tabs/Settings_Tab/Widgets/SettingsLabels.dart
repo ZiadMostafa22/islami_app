@@ -13,7 +13,7 @@ class Settingslabels extends StatelessWidget {
       Label,
       style: TextStyle(
         fontSize: 25,
-        color: ColorManager.goldColor,
+        color: ColorManager.lightPrimary,
         fontWeight: FontWeight.w500,
       ),
     );

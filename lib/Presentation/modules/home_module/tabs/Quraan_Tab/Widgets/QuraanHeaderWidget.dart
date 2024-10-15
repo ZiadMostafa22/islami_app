@@ -22,18 +22,18 @@ class Quraanheaderwidget extends StatelessWidget {
               child: Text(
                 AppLocalizations.of(context)!.versesNumber,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 24),
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
             ),
             Container(
               width: 3,
-              color: ColorManager.goldColor,
+              color: ColorManager.lightPrimary,
             ),
             Expanded(
               child: Text(
                 AppLocalizations.of(context)!.chapterName,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 24),
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
             )
           ],
