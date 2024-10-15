@@ -8,16 +8,23 @@ import 'package:islami/Presentation/modules/home_module/tabs/Hadeeth_Tab/Hadeeth
 import 'package:islami/Presentation/modules/home_module/tabs/Settings_Tab/SettingsTab.dart';
 import 'package:islami/Presentation/modules/home_module/tabs/Tasbeeh_Tab/TasbeehTab.dart';
 import 'package:islami/Presentation/modules/splash/Splash_Screen.dart';
+import 'package:islami/Providers/LanguageProvider.dart';
+import 'package:islami/Providers/ThemeProvider.dart';
 import 'package:islami/config/theme/theme.dart';
 import 'package:islami/core/routes_manager.dart';
+import 'package:provider/provider.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var themeProvider = Provider.of<ThemeProvider>(context);
+    var langProvider = Provider.of<LanguageProvider>(context);
     return MaterialApp(
       theme: theme.lightTheme,
+      darkTheme: theme.DarkTheme,
+      themeMode: themeProvider.currentTheme,
       debugShowCheckedModeBanner: false,
       routes: {
         RoutesManager.homeRoute: (_) => Homescreen(),
@@ -39,7 +46,7 @@ class MyApp extends StatelessWidget {
         Locale('en'),
         Locale('ar'),
       ],
-      locale: Locale('en'),
+      locale: Locale(langProvider.currentLanguage),
     );
   }
 }

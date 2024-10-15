@@ -22,7 +22,7 @@ class Settingscontainer extends StatelessWidget {
           Label,
           style: TextStyle(
             fontSize: 21,
-            color: ColorManager.goldColor,
+            color: ColorManager.lightPrimary,
             fontWeight: FontWeight.w500,
           ),
         ),

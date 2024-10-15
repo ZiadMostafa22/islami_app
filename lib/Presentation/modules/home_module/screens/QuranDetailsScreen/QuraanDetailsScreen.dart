@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:islami/Presentation/modules/home_module/screens/QuranDetailsScreen/Widgets/verse_widget.dart';
 import 'package:islami/Presentation/modules/home_module/tabs/Quraan_Tab/QuraanTab.dart';
+import 'package:islami/Providers/ThemeProvider.dart';
 import 'package:islami/core/assets_manager.dart';
+import 'package:provider/provider.dart';
 
 class Quraandetailsscreen extends StatefulWidget {
   Quraandetailsscreen({super.key});
@@ -17,12 +18,15 @@ class _QuraandetailsscreenState extends State<Quraandetailsscreen> {
 
   @override
   Widget build(BuildContext context) {
+    var myProvider = Provider.of<ThemeProvider>(context);
     SuraItem suraItem = ModalRoute.of(context)?.settings.arguments as SuraItem;
     if (verses.isEmpty) readQuranFile(suraItem.index + 1);
     return Stack(
       children: [
         Image.asset(
-          AssetsManager.mainBgLight,
+          myProvider.isLightTheme()
+              ? AssetsManager.mainBgLight
+              : AssetsManager.darkbg,
           fit: BoxFit.fill,
           height: double.infinity,
           width: double.infinity,
@@ -38,7 +42,10 @@ class _QuraandetailsscreenState extends State<Quraandetailsscreen> {
           appBar: AppBar(
             title: Text(
               suraItem.suraName,
-              style: GoogleFonts.readexPro(color: Colors.black, fontSize: 25),
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium
+                  ?.copyWith(fontSize: 25, fontWeight: FontWeight.w400),
             ),
           ),
         ),

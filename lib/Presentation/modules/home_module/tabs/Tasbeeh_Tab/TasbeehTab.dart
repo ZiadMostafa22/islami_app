@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:islami/core/assets_manager.dart';
 import 'package:islami/core/colors_manager.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../../Providers/ThemeProvider.dart';
 
 class TasbeehTab extends StatefulWidget {
   TasbeehTab({super.key});
@@ -23,6 +26,7 @@ class _TasbeehTabState extends State<TasbeehTab> {
 
   @override
   Widget build(BuildContext context) {
+    var myProvider = Provider.of<ThemeProvider>(context);
     return Stack(
       alignment: Alignment.center,
       children: [
@@ -31,7 +35,12 @@ class _TasbeehTabState extends State<TasbeehTab> {
           left: 190,
           width: 73,
           height: 105,
-          child: Image.asset(AssetsManager.headSebha),
+          // Use correct image for the sebha head
+          child: Image.asset(
+            myProvider.isLightTheme()
+                ? AssetsManager.headSebha
+                : AssetsManager.darkHeadSebha,
+          ),
         ),
         Positioned(
           top: 160,
@@ -39,11 +48,14 @@ class _TasbeehTabState extends State<TasbeehTab> {
           width: 232,
           height: 234,
           child: Padding(
-            padding: const EdgeInsets.all(.2),
+            padding: const EdgeInsets.all(0.2),
             child: AnimatedRotation(
               turns: rotationTurns,
               duration: Duration(milliseconds: 500),
-              child: Image.asset(AssetsManager.Sebhabody),
+              // Use correct image for the sebha body
+              child: Image.asset(myProvider.isLightTheme()
+                  ? AssetsManager.Sebhabody
+                  : AssetsManager.darkSebha),
             ),
           ),
         ),
@@ -53,7 +65,9 @@ class _TasbeehTabState extends State<TasbeehTab> {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(8)),
-              color: ColorManager.goldColor,
+              color: myProvider.isLightTheme()
+                  ? ColorManager.lightPrimary
+                  : ColorManager.yellow,
             ),
             padding: EdgeInsets.symmetric(horizontal: 22, vertical: 5),
             child: SizedBox(
@@ -63,9 +77,10 @@ class _TasbeehTabState extends State<TasbeehTab> {
                 '$counter',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 25,
-                    fontWeight: FontWeight.w500),
+                  color: Colors.white,
+                  fontSize: 25,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
           ),
@@ -94,14 +109,10 @@ class _TasbeehTabState extends State<TasbeehTab> {
               child: Text(
                 tasbeh[tasbehIndex],
                 style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500),
-              ),
-              style: ButtonStyle(
-                backgroundColor:
-                    MaterialStateProperty.all(ColorManager.goldColor),
-                elevation: MaterialStateProperty.all(20),
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
           ),
