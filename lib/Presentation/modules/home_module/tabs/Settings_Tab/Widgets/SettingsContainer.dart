@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../../../../Providers/ThemeProvider.dart';
 import '../../../../../../core/colors_manager.dart';
 
 class Settingscontainer extends StatelessWidget {
-  String Label;
+  final String Label;
 
   Settingscontainer({super.key, required this.Label});
 
   @override
   Widget build(BuildContext context) {
+    var myProvider = Provider.of<ThemeProvider>(context);
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
@@ -19,10 +22,12 @@ class Settingscontainer extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Text(
-          Label,
+          Label, // Use the passed Label instead of hardcoding the text
           style: TextStyle(
             fontSize: 21,
-            color: ColorManager.lightPrimary,
+            color: myProvider.isLightTheme()
+                ? ColorManager.lightPrimary
+                : ColorManager.darkPrimary,
             fontWeight: FontWeight.w500,
           ),
         ),

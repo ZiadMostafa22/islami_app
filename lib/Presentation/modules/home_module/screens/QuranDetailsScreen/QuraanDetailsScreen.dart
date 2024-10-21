@@ -56,8 +56,9 @@ class _QuraandetailsscreenState extends State<Quraandetailsscreen> {
   void readQuranFile(int index) async {
     String fileContent = await rootBundle.loadString('assets/files/$index.txt');
     setState(() {
-      verses = fileContent
-          .trim().split('\n');
+      verses = [
+        fileContent.trim()
+      ]; // Storing entire content as a single list element
     });
   }
 }

@@ -20,7 +20,7 @@ class Quraanheaderwidget extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                AppLocalizations.of(context)!.versesNumber,
+                AppLocalizations.of(context)!.chapterName,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
@@ -31,7 +31,7 @@ class Quraanheaderwidget extends StatelessWidget {
             ),
             Expanded(
               child: Text(
-                AppLocalizations.of(context)!.chapterName,
+                AppLocalizations.of(context)!.versesNumber,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
