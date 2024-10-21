@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../../../../Providers/ThemeProvider.dart';
 import '../../../../../../core/colors_manager.dart';
 
 class Settingslabels extends StatelessWidget {
@@ -9,11 +11,14 @@ class Settingslabels extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var myProvider = Provider.of<ThemeProvider>(context);
     return Text(
       Label,
       style: TextStyle(
         fontSize: 25,
-        color: ColorManager.lightPrimary,
+        color: myProvider.isLightTheme()
+            ? ColorManager.lightPrimary
+            : ColorManager.yellow,
         fontWeight: FontWeight.w500,
       ),
     );
