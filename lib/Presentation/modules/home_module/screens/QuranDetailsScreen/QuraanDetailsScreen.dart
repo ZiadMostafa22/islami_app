@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/Presentation/modules/home_module/screens/QuranDetailsScreen/Widgets/verse_widget.dart';
 import 'package:islami/Presentation/modules/home_module/tabs/Quraan_Tab/QuraanTab.dart';
+import 'package:islami/Providers/ThemeProvider.dart';
 import 'package:islami/core/assets_manager.dart';
+import 'package:provider/provider.dart';
 
 class Quraandetailsscreen extends StatefulWidget {
   Quraandetailsscreen({super.key});
@@ -16,12 +18,15 @@ class _QuraandetailsscreenState extends State<Quraandetailsscreen> {
 
   @override
   Widget build(BuildContext context) {
+    var myProvider = Provider.of<ThemeProvider>(context);
     SuraItem suraItem = ModalRoute.of(context)?.settings.arguments as SuraItem;
     if (verses.isEmpty) readQuranFile(suraItem.index + 1);
     return Stack(
       children: [
         Image.asset(
-          AssetsManager.mainBgLight,
+          myProvider.isLightTheme()
+              ? AssetsManager.mainBgLight
+              : AssetsManager.darkbg,
           fit: BoxFit.fill,
           height: double.infinity,
           width: double.infinity,
@@ -35,7 +40,13 @@ class _QuraandetailsscreenState extends State<Quraandetailsscreen> {
                   itemCount: verses.length,
                 ),
           appBar: AppBar(
-            title: Text(suraItem.suraName),
+            title: Text(
+              suraItem.suraName,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium
+                  ?.copyWith(fontSize: 25, fontWeight: FontWeight.w400),
+            ),
           ),
         ),
       ],
@@ -45,8 +56,9 @@ class _QuraandetailsscreenState extends State<Quraandetailsscreen> {
   void readQuranFile(int index) async {
     String fileContent = await rootBundle.loadString('assets/files/$index.txt');
     setState(() {
-      verses = fileContent
-          .trim().split('\n');
+      verses = [
+        fileContent.trim()
+      ]; // Storing entire content as a single list element
     });
   }
 }

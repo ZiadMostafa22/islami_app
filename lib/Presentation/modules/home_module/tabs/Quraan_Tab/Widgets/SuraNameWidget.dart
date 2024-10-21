@@ -25,7 +25,7 @@ class Suranamewidget extends StatelessWidget {
                 style: Theme.of(context).textTheme.titleMedium,
               )),
           Container(
-            color: ColorManager.goldColor,
+            color: ColorManager.lightPrimary,
             width: 3,
           ),
           Expanded(

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami/Providers/LanguageProvider.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../../core/colors_manager.dart';
 
@@ -12,6 +15,7 @@ class Languagebottomsheet extends StatefulWidget {
 class _LanguagebottomsheetState extends State<Languagebottomsheet> {
   @override
   Widget build(BuildContext context) {
+    var langProvider = Provider.of<LanguageProvider>(context);
     return Container(
       width: double.infinity,
       child: Padding(
@@ -19,11 +23,27 @@ class _LanguagebottomsheetState extends State<Languagebottomsheet> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            buildSelectedLanguage('English'),
+            InkWell(
+                onTap: () {
+                  langProvider.changeAppLanguage('en');
+                },
+                child: langProvider == 'en'
+                    ? buildSelectedLanguage(
+                        AppLocalizations.of(context)!.english)
+                    : buildUnSelectedLanguage(
+                        AppLocalizations.of(context)!.english)),
             SizedBox(
-              height: 8,
+              height: 15,
             ),
-            buildUnSelectedLanguage('العربية'),
+            InkWell(
+                onTap: () {
+                  langProvider.changeAppLanguage('ar');
+                },
+                child: langProvider == 'ar'
+                    ? buildUnSelectedLanguage(
+                        AppLocalizations.of(context)!.arabic)
+                    : buildUnSelectedLanguage(
+                        AppLocalizations.of(context)!.arabic)),
           ],
         ),
       ),
@@ -33,24 +53,32 @@ class _LanguagebottomsheetState extends State<Languagebottomsheet> {
   Widget buildSelectedLanguage(String selectedLanguage) {
     return Row(
       children: [
-        Text(
-          'English',
-          style: Theme.of(context).textTheme.displayMedium,
+        Row(
+          children: [
+            Text(
+              AppLocalizations.of(context)!.english,
+              style: TextStyle(fontSize: 20),
+            ),
+          ],
         ),
         Spacer(),
         Icon(
           Icons.check,
-          color: ColorManager.goldColor,
+          color: ColorManager.lightPrimary,
         ),
       ],
     );
   }
 
   Widget buildUnSelectedLanguage(String UnSelectedLanguage) {
-    return Text('العربية',
-        style: Theme.of(context)
-            .textTheme
-            .displayMedium
-            ?.copyWith(color: Colors.black));
+    return Row(
+      children: [
+        Text(UnSelectedLanguage,
+            style: Theme.of(context)
+                .textTheme
+                .displayMedium
+                ?.copyWith(color: Theme.of(context).colorScheme.secondary)),
+      ],
+    );
   }
 }
